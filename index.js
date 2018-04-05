@@ -14,23 +14,23 @@ function template(string) {
         }
     }
 
-    if (!args || !args.hasOwnProperty) {
+    if (!args) {
         args = {}
     }
 
     return string.replace(nargs, function replaceArg(match, i, index) {
-        var result
-
+        // Escaped brackets
         if (string[index - 1] === "{" &&
             string[index + match.length] === "}") {
             return i
-        } else {
-            result = args.hasOwnProperty(i) ? args[i] : null
-            if (result === null || result === undefined) {
-                return ""
-            }
-
-            return result
         }
+
+        // Replaced values
+        const result = args[i]
+        if (result == null) {
+            return ""
+        }
+
+        return result
     })
 }
