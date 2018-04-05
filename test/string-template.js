@@ -231,3 +231,15 @@ test("Template string with underscores", function (assert) {
     assert.equal(result, "Hello James Bond, how are you?")
     assert.end()
 })
+
+test("Template should reference nested properties", function (assert) {
+    var result = format("Hello {profile.username}", {profile: {username: "doe"}})
+    assert.equal(result, "Hello doe")
+    assert.end()
+})
+
+test("Template should reference nested array values using index", function (assert) {
+    var result = format("Hello {profile.0}, you are {profile.1} years old", {profile:['Doe',18]})
+    assert.equal(result, "Hello Doe, you are 18 years old")
+    assert.end()
+})
