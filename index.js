@@ -43,7 +43,7 @@ function template(string) {
         // Replaced values
         const result = getProp(args, i)
         if (result == null) {
-            return ""
+            return match
         }
 
         return result
