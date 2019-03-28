@@ -1,6 +1,6 @@
 {
   "name": "@foqum/string-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple string template function based on named or indexed arguments",
   "keywords": [
     "template",
